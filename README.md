@@ -1,57 +1,52 @@
-☁️ Desbravando a Nuvem: Um Guia Introdutório à Microsoft Azure
-Este repositório contém um resumo dos conceitos e lições aprendidas durante o laboratório da DIO sobre a Microsoft Azure. O objetivo é documentar os principais serviços e a estrutura fundamental da plataforma de nuvem da Microsoft.
+# 🏛️ Laboratório de Fundamentos Azure: Organizando a Nuvem
 
-🎯 O que é a Microsoft Azure?
-A Microsoft Azure é uma plataforma de computação em nuvem que oferece mais de 200 produtos e serviços projetados para ajudar você a criar, executar e gerenciar aplicações em múltiplos ambientes — na nuvem, localmente (on-premises) ou na borda (edge). Ela permite que empresas e desenvolvedores acessem recursos computacionais, como servidores, armazenamento, bancos de dados e redes, pela internet, pagando apenas pelo que usam.
+Este repositório documenta a execução de um desafio de projeto da DIO, focado nos pilares da organização e governança na Microsoft Azure: **Assinaturas (Subscriptions)**, **Grupos de Recursos (Resource Groups)** e **Redes Virtuais (VNETs)**. O objetivo é construir uma base sólida para projetos futuros na nuvem.
 
-🛠️ Conceitos e Serviços Fundamentais
-A Azure organiza seus serviços em categorias. Abaixo estão os conceitos essenciais para quem está começando.
+## 🎯 O Desafio
 
-📂 Estrutura e Gerenciamento
-Grupos de Recursos (Resource Groups): São "pastas" lógicas para agrupar e gerenciar todos os seus recursos (máquinas virtuais, bancos de dados, etc.) de uma solução. Facilitam a organização, o controle de custos e a gestão de permissões. Tudo na Azure deve pertencer a um grupo de recursos.
+O propósito deste laboratório é entender e aplicar na prática a estrutura hierárquica que a Azure utiliza para organizar, gerenciar e proteger recursos. Em vez de focar em um serviço específico, o desafio aborda a "espinha dorsal" de qualquer arquitetura na nuvem, garantindo que as soluções sejam escaláveis, seguras e bem gerenciadas desde o início.
 
-Azure Portal: A interface web principal para criar, gerenciar e monitorar todos os seus recursos. É o seu centro de comando na nuvem.
+### Objetivos de Aprendizagem
 
-Regiões e Zonas de Disponibilidade: A Azure possui data centers em todo o mundo, organizados em Regiões (ex: Brazil South). Cada região pode ter múltiplas Zonas de Disponibilidade, que são locais físicos isolados, garantindo alta disponibilidade e tolerância a falhas.
+Ao final deste projeto, fui capaz de:
+* Compreender a hierarquia de gerenciamento da Azure (Assinaturas e Grupos de Recursos).
+* Implementar a segmentação de rede básica utilizando VNETs e Sub-redes.
+* Documentar a estrutura de um ambiente de nuvem de forma clara para referência futura.
 
-💻 Computação (Compute)
-Esses serviços fornecem a infraestrutura para executar suas aplicações.
+## 🚀 Resumo da Execução do Laboratório
 
-Máquinas Virtuais (VMs): Servidores virtuais (Windows ou Linux) que oferecem controle total sobre o sistema operacional e o ambiente. Ideal para migrar aplicações existentes para a nuvem (IaaS - Infraestrutura como Serviço).
+A execução foi dividida em três etapas lógicas, refletindo a forma como os recursos são criados e organizados na plataforma.
 
-Serviço de Aplicativo (App Service): Uma plataforma gerenciada para hospedar aplicações web e APIs sem se preocupar com a infraestrutura subjacente (PaaS - Plataforma como Serviço). Suporta diversas linguagens como .NET, Java, Node.js, Python e PHP.
+### 1. Análise da Estrutura de Gerenciamento
 
-Azure Functions: Uma solução "serverless" (sem servidor) que permite executar pequenos trechos de código (funções) em resposta a eventos, sem precisar provisionar ou gerenciar servidores. Ideal para automação e tarefas orientadas a eventos.
+O primeiro passo foi explorar a estrutura existente no **Portal Azure**.
+* **Assinatura (Subscription):** Identifiquei a assinatura disponível, compreendendo seu papel como uma unidade de faturamento e um limite de gerenciamento. Todos os recursos criados estão vinculados a ela.
+* **Grupos de Recursos (Resource Groups):** Analisei como os grupos de recursos funcionam como contêineres lógicos. Para este laboratório, criei um novo grupo chamado `rg-network-lab-dio` na região `Brazil South`, que serviu para agrupar todos os recursos relacionados à rede. A principal vantagem é que o ciclo de vida de todos os recursos dentro dele pode ser gerenciado de forma unificada.
 
-💾 Armazenamento (Storage)
-Soluções para armazenar dados de forma segura, escalável e acessível.
+### 2. Criação da Rede Virtual (VNET)
 
-Armazenamento de Blobs (Blob Storage): Otimizado para armazenar grandes volumes de dados não estruturados, como imagens, vídeos, backups e logs.
+Com o grupo de recursos criado, o próximo passo foi provisionar a rede.
+* **Criação da VNET:** Dentro do `rg-network-lab-dio`, criei uma **Rede Virtual (VNET)** chamada `vnet-main-lab-dio`.
+* **Espaço de Endereçamento:** Defini o espaço de endereçamento IP principal para a VNET como `10.1.0.0/16`. Isso significa que todos os recursos dentro desta rede terão um IP privado nesse intervalo.
+* **Criação de Sub-redes (Subnets):** Para segmentar a rede, criei duas sub-redes:
+    * `snet-frontend` com o intervalo de endereços `10.1.1.0/24`, que poderia ser usada para recursos públicos como servidores web.
+    * `snet-backend` com o intervalo de endereços `10.1.2.0/24`, destinada a recursos privados como bancos de dados.
 
-Arquivos do Azure (Azure Files): Oferece compartilhamentos de arquivos na nuvem totalmente gerenciados, acessíveis via protocolos SMB e NFS.
+### 3. Validação e Limpeza
 
-Armazenamento em Disco (Disk Storage): Discos SSD ou HDD de alto desempenho para serem anexados a Máquinas Virtuais.
+* **Validação:** Após a criação, naveguei pelos recursos no portal para visualizar a hierarquia: a Assinatura continha o Grupo de Recursos, que por sua vez continha a VNET e suas respectivas Sub-redes.
+* **Limpeza:** Ao final do laboratório, para evitar custos e manter o ambiente organizado, **excluí o Grupo de Recursos `rg-network-lab-dio`**. Essa ação removeu automaticamente todos os recursos contidos nele (a VNET e as Sub-redes), demonstrando a eficiência desse modelo de gerenciamento.
 
-🗃️ Bancos de Dados (Databases)
-Serviços de banco de dados gerenciados, escaláveis e seguros.
+## 🛠️ Ferramentas e Recursos Utilizados
 
-Banco de Dados SQL do Azure (Azure SQL Database): Uma versão gerenciada do Microsoft SQL Server, oferecendo alta performance e compatibilidade (PaaS).
+* **Microsoft Azure Portal:** Para criação e gerenciamento de todos os recursos.
+* **GitHub:** Para a documentação e versionamento deste projeto.
+* **Markdown:** Para a criação deste arquivo `README.md`.
 
-Azure Cosmos DB: Um banco de dados NoSQL multimodelo, distribuído globalmente, com latência de milissegundos e alta disponibilidade.
+### Materiais de Apoio
+* [Documentação sobre Grupos de Recursos do Azure](https://learn.microsoft.com/pt-br/azure/azure-resource-manager/management/manage-resource-groups-portal)
+* [O que é uma Rede Virtual do Azure (VNet)?](https://learn.microsoft.com/pt-br/azure/virtual-network/virtual-networks-overview)
 
-🌐 Rede (Networking)
-Rede Virtual do Azure (VNet): Permite criar redes privadas e isoladas na nuvem, onde você pode conectar seus recursos de forma segura.
+## ✨ Conclusão
 
-Balanceador de Carga (Load Balancer): Distribui o tráfego de rede entre múltiplas máquinas virtuais para garantir alta disponibilidade e performance.
-
-🚀 Como Começar: Passo a Passo Simples
-Criar uma Conta Gratuita: Acesse o site da Azure e crie uma conta para obter créditos gratuitos e acesso a serviços populares.
-
-Explorar o Azure Portal: Familiarize-se com a interface, navegando pelos menus e dashboards.
-
-Criar seu Primeiro Recurso: Use o portal para provisionar um recurso simples, como um Serviço de Aplicativo para hospedar um site estático ou uma Máquina Virtual com Linux.
-
-Organize com Grupos de Recursos: Sempre crie um novo Grupo de Recursos para cada projeto ou lab, facilitando a limpeza posterior.
-
-✨ Conclusão
-Este laboratório proporcionou uma visão prática e fundamental do poder da Microsoft Azure. Compreender conceitos como Grupos de Recursos, Serviços de Aplicativo e Máquinas Virtuais é o primeiro passo para construir soluções robustas e escaláveis na nuvem. A jornada na computação em nuvem é contínua e cheia de possibilidades!
+Este desafio foi crucial para solidificar a importância do planejamento e da organização na nuvem. Uma estrutura bem definida de Grupos de Recursos e VNETs é a base para garantir segurança, controle de custos e escalabilidade em qualquer projeto na Azure. Dominar esses conceitos fundamentais é o primeiro passo para se tornar um arquiteto de soluções na nuvem eficaz.

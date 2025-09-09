@@ -1,57 +1,58 @@
-☁️ Desbravando a Nuvem: Um Guia Introdutório à Microsoft Azure
-Este repositório contém um resumo dos conceitos e lições aprendidas durante o laboratório da DIO sobre a Microsoft Azure. O objetivo é documentar os principais serviços e a estrutura fundamental da plataforma de nuvem da Microsoft.
+⚙️ Laboratório Azure: Explorando o Poder Computacional
+Este repositório documenta a execução de um desafio de projeto da DIO, focado em entender e provisionar diferentes tipos de instâncias de computação na Microsoft Azure. O objetivo é aprender a escolher o serviço certo para a necessidade certa, desde Máquinas Virtuais personalizadas para tarefas específicas (como workstations) até a agilidade do serverless com Azure Functions.
 
-🎯 O que é a Microsoft Azure?
-A Microsoft Azure é uma plataforma de computação em nuvem que oferece mais de 200 produtos e serviços projetados para ajudar você a criar, executar e gerenciar aplicações em múltiplos ambientes — na nuvem, localmente (on-premises) ou na borda (edge). Ela permite que empresas e desenvolvedores acessem recursos computacionais, como servidores, armazenamento, bancos de dados e redes, pela internet, pagando apenas pelo que usam.
+🎯 O Desafio
+O propósito deste laboratório é ir além da criação de uma VM genérica e explorar como a Azure oferece um leque de opções computacionais para diferentes cenários. O desafio consiste em provisionar uma VM customizada para um fim específico e contrastar essa abordagem com modelos mais gerenciados, como as Functions.
 
-🛠️ Conceitos e Serviços Fundamentais
-A Azure organiza seus serviços em categorias. Abaixo estão os conceitos essenciais para quem está começando.
+Objetivos de Aprendizagem
+Ao final deste projeto, fui capaz de:
 
-📂 Estrutura e Gerenciamento
-Grupos de Recursos (Resource Groups): São "pastas" lógicas para agrupar e gerenciar todos os seus recursos (máquinas virtuais, bancos de dados, etc.) de uma solução. Facilitam a organização, o controle de custos e a gestão de permissões. Tudo na Azure deve pertencer a um grupo de recursos.
+Diferenciar os principais modelos de serviço de computação: IaaS, PaaS e Serverless.
 
-Azure Portal: A interface web principal para criar, gerenciar e monitorar todos os seus recursos. É o seu centro de comando na nuvem.
+Criar uma Máquina Virtual personalizada a partir de imagens do Azure Marketplace para atender a uma necessidade específica.
 
-Regiões e Zonas de Disponibilidade: A Azure possui data centers em todo o mundo, organizados em Regiões (ex: Brazil South). Cada região pode ter múltiplas Zonas de Disponibilidade, que são locais físicos isolados, garantindo alta disponibilidade e tolerância a falhas.
+Compreender o caso de uso ideal para Azure Functions em comparação com uma VM tradicional.
 
-💻 Computação (Compute)
-Esses serviços fornecem a infraestrutura para executar suas aplicações.
+🚀 Resumo da Execução do Laboratório
+A execução foi dividida em duas frentes principais: a criação de uma workstation de desenvolvimento completa (IaaS) e a exploração de uma função serverless (FaaS).
 
-Máquinas Virtuais (VMs): Servidores virtuais (Windows ou Linux) que oferecem controle total sobre o sistema operacional e o ambiente. Ideal para migrar aplicações existentes para a nuvem (IaaS - Infraestrutura como Serviço).
+1. Provisionando uma Workstation de Desenvolvimento (VM Personalizada)
+O objetivo aqui era simular a criação de uma máquina de alta performance para um desenvolvedor, com todo o ambiente já configurado.
 
-Serviço de Aplicativo (App Service): Uma plataforma gerenciada para hospedar aplicações web e APIs sem se preocupar com a infraestrutura subjacente (PaaS - Plataforma como Serviço). Suporta diversas linguagens como .NET, Java, Node.js, Python e PHP.
+Planejamento e Grupo de Recursos: Criei um novo grupo de recursos chamado rg-dev-workstation-lab para isolar o ambiente.
 
-Azure Functions: Uma solução "serverless" (sem servidor) que permite executar pequenos trechos de código (funções) em resposta a eventos, sem precisar provisionar ou gerenciar servidores. Ideal para automação e tarefas orientadas a eventos.
+Escolha da Imagem (O Ponto Chave): Em vez de uma imagem de SO base, utilizei o Azure Marketplace para encontrar uma imagem pré-configurada de "Windows 10 + Visual Studio 2022". Isso economiza horas de instalação e configuração manual.
 
-💾 Armazenamento (Storage)
-Soluções para armazenar dados de forma segura, escalável e acessível.
+Seleção do Tamanho (Performance): Escolhi uma instância da série Dsv3 (ex: Standard_D2s_v3), que é otimizada para aplicações de uso geral e oferece um bom equilíbrio entre CPU e memória para compilação de código e desenvolvimento.
 
-Armazenamento de Blobs (Blob Storage): Otimizado para armazenar grandes volumes de dados não estruturados, como imagens, vídeos, backups e logs.
+Configuração e Acesso: Configurei as regras de rede para permitir acesso via RDP (porta 3389) e, após o provisionamento, conectei-me à máquina para validar que o Visual Studio e todas as ferramentas de desenvolvimento estavam prontas para uso.
 
-Arquivos do Azure (Azure Files): Oferece compartilhamentos de arquivos na nuvem totalmente gerenciados, acessíveis via protocolos SMB e NFS.
+2. Explorando a Abordagem Serverless (Azure Functions)
+Para contrastar com a complexidade e o controle total da VM, criei uma pequena função para executar uma tarefa simples.
 
-Armazenamento em Disco (Disk Storage): Discos SSD ou HDD de alto desempenho para serem anexados a Máquinas Virtuais.
+Criação do Function App: Dentro do mesmo grupo de recursos, criei um Aplicativo de Funções. O provisionamento foi muito mais rápido, pois não há um sistema operacional completo para gerenciar.
 
-🗃️ Bancos de Dados (Databases)
-Serviços de banco de dados gerenciados, escaláveis e seguros.
+Desenvolvimento da Função: Criei uma função simples com um gatilho HTTP. O objetivo era receber um nome como parâmetro na URL e retornar uma saudação "Olá, [nome]".
 
-Banco de Dados SQL do Azure (Azure SQL Database): Uma versão gerenciada do Microsoft SQL Server, oferecendo alta performance e compatibilidade (PaaS).
+Teste e Validação: Utilizei a própria interface do portal para testar a função, passando um parâmetro na URL de teste e verificando a resposta. A simplicidade e o foco exclusivo no código foram evidentes.
 
-Azure Cosmos DB: Um banco de dados NoSQL multimodelo, distribuído globalmente, com latência de milissegundos e alta disponibilidade.
+🛠️ Ferramentas e Recursos Utilizados
+Microsoft Azure Portal: Para provisionamento e gerenciamento de todos os recursos.
 
-🌐 Rede (Networking)
-Rede Virtual do Azure (VNet): Permite criar redes privadas e isoladas na nuvem, onde você pode conectar seus recursos de forma segura.
+Azure Marketplace: Para encontrar imagens de VM especializadas.
 
-Balanceador de Carga (Load Balancer): Distribui o tráfego de rede entre múltiplas máquinas virtuais para garantir alta disponibilidade e performance.
+Cliente de Área de Trabalho Remota: Para conectar à workstation virtual.
 
-🚀 Como Começar: Passo a Passo Simples
-Criar uma Conta Gratuita: Acesse o site da Azure e crie uma conta para obter créditos gratuitos e acesso a serviços populares.
+GitHub: Para a documentação e versionamento deste projeto.
 
-Explorar o Azure Portal: Familiarize-se com a interface, navegando pelos menus e dashboards.
+Materiais de Apoio
+Série de tamanhos de VM para fins gerais
 
-Criar seu Primeiro Recurso: Use o portal para provisionar um recurso simples, como um Serviço de Aplicativo para hospedar um site estático ou uma Máquina Virtual com Linux.
-
-Organize com Grupos de Recursos: Sempre crie um novo Grupo de Recursos para cada projeto ou lab, facilitando a limpeza posterior.
+Introdução ao Azure Functions
 
 ✨ Conclusão
-Este laboratório proporcionou uma visão prática e fundamental do poder da Microsoft Azure. Compreender conceitos como Grupos de Recursos, Serviços de Aplicativo e Máquinas Virtuais é o primeiro passo para construir soluções robustas e escaláveis na nuvem. A jornada na computação em nuvem é contínua e cheia de possibilidades!
+Este laboratório foi essencial para entender que não existe uma "solução única" para computação na nuvem.
+
+Máquinas Virtuais (IaaS) brilham quando você precisa de controle total, ambientes persistentes e softwares específicos, sendo a escolha ideal para workstations, servidores de legado ou aplicações com requisitos complexos de sistema operacional.
+
+Azure Functions (Serverless/FaaS) é a ferramenta perfeita para tarefas orientadas a eventos, processamento de dados em pequena escala e microsserviços, onde o foco é a lógica do negócio, e não a infraestrutura

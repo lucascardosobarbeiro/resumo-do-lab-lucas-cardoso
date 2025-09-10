@@ -1,57 +1,50 @@
-☁️ Desbravando a Nuvem: Um Guia Introdutório à Microsoft Azure
-Este repositório contém um resumo dos conceitos e lições aprendidas durante o laboratório da DIO sobre a Microsoft Azure. O objetivo é documentar os principais serviços e a estrutura fundamental da plataforma de nuvem da Microsoft.
+💰 Laboratório Azure: Dominando o Gerenciamento de Custos na Nuvem
+Este repositório documenta um desafio de projeto da DIO, focado em explorar as ferramentas e estratégias para Gerenciamento de Custos na Microsoft Azure. O objetivo é entender como monitorar, controlar e otimizar os gastos para garantir que o uso da nuvem seja financeiramente sustentável e eficiente.
 
-🎯 O que é a Microsoft Azure?
-A Microsoft Azure é uma plataforma de computação em nuvem que oferece mais de 200 produtos e serviços projetados para ajudar você a criar, executar e gerenciar aplicações em múltiplos ambientes — na nuvem, localmente (on-premises) ou na borda (edge). Ela permite que empresas e desenvolvedores acessem recursos computacionais, como servidores, armazenamento, bancos de dados e redes, pela internet, pagando apenas pelo que usam.
+🎯 O Desafio
+O propósito deste laboratório é compreender que a flexibilidade da nuvem vem com a responsabilidade de gerenciar seus custos. O desafio consiste em pesquisar e documentar os principais serviços que a Azure oferece para dar visibilidade, controle e recomendações sobre os gastos, transformando o gerenciamento de custos de uma tarefa reativa para uma estratégia proativa.
 
-🛠️ Conceitos e Serviços Fundamentais
-A Azure organiza seus serviços em categorias. Abaixo estão os conceitos essenciais para quem está começando.
+Objetivos de Aprendizagem
+Ao final deste projeto, fui capaz de:
 
-📂 Estrutura e Gerenciamento
-Grupos de Recursos (Resource Groups): São "pastas" lógicas para agrupar e gerenciar todos os seus recursos (máquinas virtuais, bancos de dados, etc.) de uma solução. Facilitam a organização, o controle de custos e a gestão de permissões. Tudo na Azure deve pertencer a um grupo de recursos.
+Identificar as principais ferramentas para análise de custos na Azure.
 
-Azure Portal: A interface web principal para criar, gerenciar e monitorar todos os seus recursos. É o seu centro de comando na nuvem.
+Entender como criar alertas para evitar gastos inesperados.
 
-Regiões e Zonas de Disponibilidade: A Azure possui data centers em todo o mundo, organizados em Regiões (ex: Brazil South). Cada região pode ter múltiplas Zonas de Disponibilidade, que são locais físicos isolados, garantindo alta disponibilidade e tolerância a falhas.
+Conhecer estratégias para otimizar e reduzir os custos na nuvem.
 
-💻 Computação (Compute)
-Esses serviços fornecem a infraestrutura para executar suas aplicações.
+Diferenciar os modelos de precificação e as opções de desconto.
 
-Máquinas Virtuais (VMs): Servidores virtuais (Windows ou Linux) que oferecem controle total sobre o sistema operacional e o ambiente. Ideal para migrar aplicações existentes para a nuvem (IaaS - Infraestrutura como Serviço).
+💸 Pilares do Gerenciamento de Custos na Azure
+A Azure oferece um conjunto de ferramentas integradas para ajudar a controlar os gastos em todas as fases do ciclo de vida de um projeto.
 
-Serviço de Aplicativo (App Service): Uma plataforma gerenciada para hospedar aplicações web e APIs sem se preocupar com a infraestrutura subjacente (PaaS - Plataforma como Serviço). Suporta diversas linguagens como .NET, Java, Node.js, Python e PHP.
+1. Azure Cost Management + Billing
+É o hub centralizado para a gestão financeira na Azure. Pense nele como o painel de controle financeiro do seu ambiente. Ele permite:
 
-Azure Functions: Uma solução "serverless" (sem servidor) que permite executar pequenos trechos de código (funções) em resposta a eventos, sem precisar provisionar ou gerenciar servidores. Ideal para automação e tarefas orientadas a eventos.
+Analisar Custos: Visualizar dashboards detalhados que mostram onde o dinheiro está sendo gasto (por serviço, por recurso, por tags).
 
-💾 Armazenamento (Storage)
-Soluções para armazenar dados de forma segura, escalável e acessível.
+Monitorar Tendências: Acompanhar os gastos ao longo do tempo para prever custos futuros.
 
-Armazenamento de Blobs (Blob Storage): Otimizado para armazenar grandes volumes de dados não estruturados, como imagens, vídeos, backups e logs.
+Exportar Dados: Agendar exportações de dados de custo para análise em outras ferramentas.
 
-Arquivos do Azure (Azure Files): Oferece compartilhamentos de arquivos na nuvem totalmente gerenciados, acessíveis via protocolos SMB e NFS.
+2. Azure Advisor
+Funciona como um consultor de nuvem personalizado e gratuito. O Advisor analisa o uso dos seus recursos e fornece recomendações proativas para otimizar o ambiente em várias áreas, mas seu papel no controle de custos é fundamental:
 
-Armazenamento em Disco (Disk Storage): Discos SSD ou HDD de alto desempenho para serem anexados a Máquinas Virtuais.
+Recomendações de Custo: Sugere ações concretas para economizar, como redimensionar ou desligar VMs subutilizadas, ou comprar instâncias reservadas para cargas de trabalho estáveis.
 
-🗃️ Bancos de Dados (Databases)
-Serviços de banco de dados gerenciados, escaláveis e seguros.
+3. Azure Budgets (Orçamentos)
+É a principal ferramenta para controle proativo de gastos. Com os orçamentos, você pode:
 
-Banco de Dados SQL do Azure (Azure SQL Database): Uma versão gerenciada do Microsoft SQL Server, oferecendo alta performance e compatibilidade (PaaS).
+Definir Limites: Estabelecer um teto de gastos para uma assinatura, um grupo de recursos ou uma tag específica.
 
-Azure Cosmos DB: Um banco de dados NoSQL multimodelo, distribuído globalmente, com latência de milissegundos e alta disponibilidade.
+Receber Alertas: Configurar notificações por e-mail quando os gastos atingem um determinado percentual do orçamento (ex: 50%, 80%, 100%). Isso permite tomar ações antes que os custos saiam do controle.
 
-🌐 Rede (Networking)
-Rede Virtual do Azure (VNet): Permite criar redes privadas e isoladas na nuvem, onde você pode conectar seus recursos de forma segura.
+4. Azure Reservations (Reservas)
+Uma estratégia financeira para reduzir custos significativamente em cargas de trabalho previsíveis.
 
-Balanceador de Carga (Load Balancer): Distribui o tráfego de rede entre múltiplas máquinas virtuais para garantir alta disponibilidade e performance.
+Compromisso de Longo Prazo: Você se compromete a usar um determinado serviço (como Máquinas Virtuais ou Bancos de Dados SQL) por um período de um ou três anos.
 
-🚀 Como Começar: Passo a Passo Simples
-Criar uma Conta Gratuita: Acesse o site da Azure e crie uma conta para obter créditos gratuitos e acesso a serviços populares.
-
-Explorar o Azure Portal: Familiarize-se com a interface, navegando pelos menus e dashboards.
-
-Criar seu Primeiro Recurso: Use o portal para provisionar um recurso simples, como um Serviço de Aplicativo para hospedar um site estático ou uma Máquina Virtual com Linux.
-
-Organize com Grupos de Recursos: Sempre crie um novo Grupo de Recursos para cada projeto ou lab, facilitando a limpeza posterior.
+Descontos Expressivos: Em troca desse compromisso, você recebe um grande desconto em comparação com os preços de pagamento conforme o uso (pay-as-you-go).
 
 ✨ Conclusão
-Este laboratório proporcionou uma visão prática e fundamental do poder da Microsoft Azure. Compreender conceitos como Grupos de Recursos, Serviços de Aplicativo e Máquinas Virtuais é o primeiro passo para construir soluções robustas e escaláveis na nuvem. A jornada na computação em nuvem é contínua e cheia de possibilidades!
+Este estudo demonstrou que o gerenciamento de custos na Azure é uma disciplina contínua e essencial. Utilizando o Cost Management para visibilidade, o Advisor para obter insights, os Budgets para controle e as Reservations para otimização, é possível aproveitar todo o poder da nuvem de forma financeiramente inteligente e sustentável.

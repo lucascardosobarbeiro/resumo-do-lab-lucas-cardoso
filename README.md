@@ -1,57 +1,51 @@
-☁️ Desbravando a Nuvem: Um Guia Introdutório à Microsoft Azure
-Este repositório contém um resumo dos conceitos e lições aprendidas durante o laboratório da DIO sobre a Microsoft Azure. O objetivo é documentar os principais serviços e a estrutura fundamental da plataforma de nuvem da Microsoft.
+🛡️ Laboratório Azure: Protegendo a Nuvem com Segurança e Identidade
+Este repositório documenta um desafio de projeto da DIO, focado em explorar os pilares de Segurança e Identidade na Microsoft Azure. O objetivo é entender como utilizar as ferramentas da nuvem para proteger dados, aplicações e a infraestrutura contra ameaças, aplicando o princípio da defesa em profundidade.
 
-🎯 O que é a Microsoft Azure?
-A Microsoft Azure é uma plataforma de computação em nuvem que oferece mais de 200 produtos e serviços projetados para ajudar você a criar, executar e gerenciar aplicações em múltiplos ambientes — na nuvem, localmente (on-premises) ou na borda (edge). Ela permite que empresas e desenvolvedores acessem recursos computacionais, como servidores, armazenamento, bancos de dados e redes, pela internet, pagando apenas pelo que usam.
+🎯 O Desafio
+O propósito deste laboratório é ir além dos serviços de computação e armazenamento, mergulhando nas camadas que garantem a integridade e a confidencialidade de um ambiente na nuvem. O desafio consiste em pesquisar e documentar os principais recursos de segurança da Azure, desde o controle de quem pode acessar os recursos até a proteção proativa contra ameaças cibernéticas.
 
-🛠️ Conceitos e Serviços Fundamentais
-A Azure organiza seus serviços em categorias. Abaixo estão os conceitos essenciais para quem está começando.
+Objetivos de Aprendizagem
+Ao final deste projeto, fui capaz de:
 
-📂 Estrutura e Gerenciamento
-Grupos de Recursos (Resource Groups): São "pastas" lógicas para agrupar e gerenciar todos os seus recursos (máquinas virtuais, bancos de dados, etc.) de uma solução. Facilitam a organização, o controle de custos e a gestão de permissões. Tudo na Azure deve pertencer a um grupo de recursos.
+Entender o papel do Microsoft Entra ID no gerenciamento de identidades e acessos.
 
-Azure Portal: A interface web principal para criar, gerenciar e monitorar todos os seus recursos. É o seu centro de comando na nuvem.
+Diferenciar as ferramentas de segurança de rede, como NSGs e Azure Firewall.
 
-Regiões e Zonas de Disponibilidade: A Azure possui data centers em todo o mundo, organizados em Regiões (ex: Brazil South). Cada região pode ter múltiplas Zonas de Disponibilidade, que são locais físicos isolados, garantindo alta disponibilidade e tolerância a falhas.
+Identificar os serviços para proteção contra ameaças e gerenciamento da postura de segurança.
 
-💻 Computação (Compute)
-Esses serviços fornecem a infraestrutura para executar suas aplicações.
+Compreender a importância de proteger segredos e chaves com o Azure Key Vault.
 
-Máquinas Virtuais (VMs): Servidores virtuais (Windows ou Linux) que oferecem controle total sobre o sistema operacional e o ambiente. Ideal para migrar aplicações existentes para a nuvem (IaaS - Infraestrutura como Serviço).
+🔐 Pilares da Segurança e Identidade na Azure
+A segurança na Azure é construída em camadas (defesa em profundidade). Abaixo estão os principais serviços e conceitos estudados.
 
-Serviço de Aplicativo (App Service): Uma plataforma gerenciada para hospedar aplicações web e APIs sem se preocupar com a infraestrutura subjacente (PaaS - Plataforma como Serviço). Suporta diversas linguagens como .NET, Java, Node.js, Python e PHP.
+1. Microsoft Entra ID (anteriormente Azure AD): O Coração da Identidade
+É o serviço de gerenciamento de identidade e acesso multinuvem da Microsoft. Ele é a porta de entrada para todos os serviços da Azure e do Microsoft 365.
 
-Azure Functions: Uma solução "serverless" (sem servidor) que permite executar pequenos trechos de código (funções) em resposta a eventos, sem precisar provisionar ou gerenciar servidores. Ideal para automação e tarefas orientadas a eventos.
+Gerenciamento de Identidade: Criação e gestão de usuários, grupos e permissões.
 
-💾 Armazenamento (Storage)
-Soluções para armazenar dados de forma segura, escalável e acessível.
+Autenticação Multifator (MFA): Adiciona uma camada crucial de segurança, exigindo uma segunda forma de verificação (como um código no celular) para comprovar a identidade do usuário.
 
-Armazenamento de Blobs (Blob Storage): Otimizado para armazenar grandes volumes de dados não estruturados, como imagens, vídeos, backups e logs.
+Acesso Condicional (Conditional Access): Permite criar regras granulares para o acesso. Por exemplo: "Exigir MFA para todos os administradores que acessam o portal de um local não confiável".
 
-Arquivos do Azure (Azure Files): Oferece compartilhamentos de arquivos na nuvem totalmente gerenciados, acessíveis via protocolos SMB e NFS.
+Controle de Acesso Baseado em Função (RBAC): Garante o princípio do menor privilégio. Em vez de dar permissão total, você atribui funções específicas (como Leitor, Contribuidor, Proprietário) a usuários ou grupos para recursos específicos.
 
-Armazenamento em Disco (Disk Storage): Discos SSD ou HDD de alto desempenho para serem anexados a Máquinas Virtuais.
+2. Segurança de Rede: A Primeira Linha de Defesa
+Controlar o tráfego de rede é fundamental para impedir acessos não autorizados.
 
-🗃️ Bancos de Dados (Databases)
-Serviços de banco de dados gerenciados, escaláveis e seguros.
+Grupos de Segurança de Rede (NSGs): Funcionam como um firewall básico no nível da sub-rede ou da placa de rede de uma VM. Permitem criar regras de entrada e saída para liberar ou bloquear tráfego com base em IP, porta e protocolo.
 
-Banco de Dados SQL do Azure (Azure SQL Database): Uma versão gerenciada do Microsoft SQL Server, oferecendo alta performance e compatibilidade (PaaS).
+Azure Firewall: Um serviço de firewall de rede inteligente e totalmente gerenciado. Oferece proteção centralizada para todos os recursos em uma rede virtual, com recursos avançados como filtragem baseada em inteligência contra ameaças.
 
-Azure Cosmos DB: Um banco de dados NoSQL multimodelo, distribuído globalmente, com latência de milissegundos e alta disponibilidade.
+Proteção contra DDoS do Azure: Protege os recursos da Azure contra ataques de negação de serviço distribuído (DDoS), garantindo a disponibilidade das aplicações.
 
-🌐 Rede (Networking)
-Rede Virtual do Azure (VNet): Permite criar redes privadas e isoladas na nuvem, onde você pode conectar seus recursos de forma segura.
+3. Proteção Contra Ameaças e Gerenciamento de Postura
+Microsoft Defender for Cloud: É o hub centralizado para o gerenciamento da postura de segurança na nuvem (CSPM) e proteção de cargas de trabalho (CWPP). Ele fornece:
 
-Balanceador de Carga (Load Balancer): Distribui o tráfego de rede entre múltiplas máquinas virtuais para garantir alta disponibilidade e performance.
+Pontuação de Segurança: Uma nota que indica o quão segura está sua infraestrutura.
 
-🚀 Como Começar: Passo a Passo Simples
-Criar uma Conta Gratuita: Acesse o site da Azure e crie uma conta para obter créditos gratuitos e acesso a serviços populares.
+Recomendações: Sugestões práticas para corrigir vulnerabilidades (ex: "Habilite o MFA em contas de proprietário").
 
-Explorar o Azure Portal: Familiarize-se com a interface, navegando pelos menus e dashboards.
+Alertas de Segurança: Detecta e alerta sobre atividades suspeitas em tempo real.
 
-Criar seu Primeiro Recurso: Use o portal para provisionar um recurso simples, como um Serviço de Aplicativo para hospedar um site estático ou uma Máquina Virtual com Linux.
-
-Organize com Grupos de Recursos: Sempre crie um novo Grupo de Recursos para cada projeto ou lab, facilitando a limpeza posterior.
-
-✨ Conclusão
-Este laboratório proporcionou uma visão prática e fundamental do poder da Microsoft Azure. Compreender conceitos como Grupos de Recursos, Serviços de Aplicativo e Máquinas Virtuais é o primeiro passo para construir soluções robustas e escaláveis na nuvem. A jornada na computação em nuvem é contínua e cheia de possibilidades!
+4. Proteção da Informação: Guardando os Segredos
+Azure Key Vault: Um cofre seguro na nuvem para armazenar e gerenciar segredos de aplicação, como chaves de API, senhas e certificados. Isso evita a prática perigosa de armazen
